@@ -1,0 +1,26 @@
+#miniCard {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  height: auto;
+  border: 1px solid black;
+}
+paper-slider, paper-item {
+  display: block;
+}
+
+core-dropdown {
+  margin-top: 20px;
+}
+.dropdownBox {
+  outline: none;
+  width: 170px;
+  height: 386px;
+  box-sizing: border-box;
+  z-index: 12;
+  left: 0px;
+  top: 0px;
+  max-height: 345px;
+  max-width: 1342px;
+}

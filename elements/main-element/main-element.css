@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+}
+core-header-panel[drawer] {
+  background: rgb(78, 78, 78);
+  color:white;
+}
+core-header-panel[main] {
+  background: white;
+}
+core-toolbar {
+  background-color: #1c7eff;
+  color: white;
+}
+#navheader {
+  background-color: #000000;
+  color:white;
+}
+.content {
+  padding: 20px;
+}
+/* drawer is always visible on a wide screen
+so menu button isn't required */
+core-drawer-panel:not([narrow]) #navicon {
+  display: none;
+}
+
+.card {
+  margin-top:10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-height: 500px;
+  background-color: #fff;
+}
+
+paper-fab {
+  z-index: 10;
+  right: 30px;
+  bottom: 20px;
+  position: fixed;
+}
+#navheader>core-image::shadow img {
+  height: auto;
+  width: 200px;
+}

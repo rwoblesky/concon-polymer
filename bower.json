@@ -1,0 +1,21 @@
+{
+  "name": "ConCon",
+  "version": "0.0.1",
+  "authors": [
+    "Robert <rwoblesky@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.1"
+  }
+}

@@ -1,0 +1,31 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="log-workout">
+
+  <template>
+    <link rel="stylesheet" href="log-workout.css">
+
+    <h5>{{today}}</h5>
+
+    Today's Weight: <paper-input label="Weight"></paper-input>
+    <!--Empty div to dump exercise cards into-->
+    <div id="exercises">
+      <log-exercise></log-exercise>
+    </div>
+    <paper-button raised id="addExercise" >+ADD EXERCISE</paper-button>
+    <paper-fab icon="done" class="green" mini></paper-fab>
+    <paper-fab icon="clear" class="red" mini></paper-fab>
+
+  </template>
+  <script>
+
+  Polymer('log-workout', {
+    ready: function() {
+      this.exercises = this.$.exercises;
+    },
+    today: new Date(),
+    list: ['Chest', 'Back']
+  });
+  </script>
+
+</polymer-element>

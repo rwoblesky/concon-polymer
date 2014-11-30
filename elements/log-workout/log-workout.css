@@ -1,0 +1,17 @@
+#addExercise {
+  float: right;
+}
+paper-fab.green{
+  background-color: green;
+  z-index: 10;
+  right: 40px;
+  bottom: 20px;
+  position: fixed;
+}
+paper-fab.red{
+  background-color: red;
+  z-index: 10;
+  right: 100px;
+  bottom: 20px;
+  position: fixed;
+}
