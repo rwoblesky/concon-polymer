@@ -10,10 +10,11 @@
     Today's Weight: <paper-input label="Weight"></paper-input>
     <!--Empty div to dump exercise cards into-->
     <div id="exercises">
-      <log-exercise></log-exercise>
+      <log-exercise id="exercise1"></log-exercise>
+      <log-exercise id="exercise2"></log-exercise>
     </div>
     <paper-button raised id="addExercise" >+ADD EXERCISE</paper-button>
-    <paper-fab icon="done" class="green" mini></paper-fab>
+    <paper-fab icon="done" class="green" mini on-tap="{{submitForm}}"></paper-fab>
     <paper-fab icon="clear" class="red" mini></paper-fab>
 
   </template>
@@ -22,9 +23,27 @@
   Polymer('log-workout', {
     ready: function() {
       this.exercises = this.$.exercises;
+      console.log(this.$.exercise1.bodySelected);
+      console.log(this.$.exercise2.bodySelected);
     },
     today: new Date(),
-    list: ['Chest', 'Back']
+    list: ['Chest', 'Back'],
+    submitForm: function(){
+      console.log(this.$.formStuff.bodySelected);
+      var name = this.$.formStuff.bodySelected;
+      console.log(name);
+      // Returns successful data submission message when the entered information is stored in database.
+      /*var dataString = 'name1='+ name;
+      $.ajax({
+        type: "POST",
+        url: "../../php/submit.php",
+        data: dataString,
+        cache: false,
+        success: function(result){
+          alert(result);
+        }
+      });*/
+    }
   });
   </script>
 

@@ -24,3 +24,10 @@ core-dropdown {
   max-height: 345px;
   max-width: 1342px;
 }
+paper-input.value-input {
+  width: 40px;
+}
+
+paper-input.value-input::shadow input {
+  text-align: center;
+}

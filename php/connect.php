@@ -23,6 +23,14 @@ if ($query == "body_parts"){
     $rows[] = $r;
   }
   echo json_encode($rows);
+} else if ($query == "exercises"){
+  $sql = "SELECT bp.name body_part, e.exercise_name FROM exercises e JOIN body_parts bp ON e.b_id = bp.id";
+  $result = $conn->query($sql);
+  $rows = array();
+  while($r = mysqli_fetch_assoc($result)) {
+    $rows[] = $r;
+  }
+  echo json_encode($rows);
 } else {
   echo "Query not supported! <br />";
 }

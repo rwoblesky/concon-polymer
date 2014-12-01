@@ -3,15 +3,16 @@
 <polymer-element name="log-exercise">
 
   <template>
+    <app-globals id="globals"></app-globals>
     <link rel="stylesheet" href="log-exercise.css">
     <paper-shadow z="1" id="miniCard" flex>
       <div horizontal layout>
         <div flex>
           <core-dropdown-menu label="Choose a body part">
             <core-dropdown class="dropdown">
-              <core-selector id="bodySelected" on-core-select="{{selectedBody}}" selectedItem={{item}} selected="">
-                <template repeat="{{bodyPart in masterList}}">
-                  <core-item label={{bodyPart.name}}></core-item>
+              <core-selector id="bodySelected" on-core-select="{{selectedBodyChange}}" selectedItem={{item}} selected="" value="{{selectedBody}}">
+                <template repeat="{{bodyPart in $.globals.bodyParts}}">
+                  <core-item label={{bodyPart}}></core-item>
                 </template>
             </core-dropdown>
           </core-dropdown-menu>
@@ -20,19 +21,30 @@
           <core-dropdown-menu label="Choose an exercise">
             <core-dropdown class="dropdown">
               <core-selector on-core-select="{{selectedExercise}}" selectedItem={{item}} selected="">
-                <template repeat="{{bodyPart in masterList}}">
-                  <template repeat="{{exercise in bodyPart.exercises}}">
-                    <core-item label={{exercise}} id="{{bodyPart.name}}"></core-item>
-                  </template>
+                <template repeat="{{exercise in $.globals.exercises}}">
+                    <core-item label={{exercise.exercise_name}} id="{{exercise.exercise_name}}"></core-item>
                 </template>
               </core-dropdown>
             </core-dropdown-menu>
         </div>
         <div flex two>
-          Set 1: <paper-slider></paper-slider>
-          Set 2: <paper-slider></paper-slider>
-          Set 3: <paper-slider></paper-slider>
-
+          <div vertical layout>
+            <div center horizontal layout>
+              <div>Set 1:</div>
+              <div two><paper-slider value="{{reps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+            </div>
+            <div center horizontal layout>
+              <div>Set 1:</div>
+              <div two><paper-slider value="{{reps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+            </div>
+            <div center horizontal layout>
+              <div>Set 1:</div>
+              <div two><paper-slider value="{{reps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+            </div>
+          </div>
         </div>
         <div flex>
           <paper-button raised>+ADD SET</paper-button>
@@ -44,23 +56,28 @@
 
   </template>
   <script>
-  Polymer('log-exercise', {
-    ready: function() {
-    },
-    selectedBody: function(e){
-      console.log(e.detail.item.label);
-    },
-    selectedExercise: function(e){
-      console.log(e.detail.item.id);
-    },
-    bodyParts: ['Chest', 'Back', 'Core (Abs)', 'Core (Back)', 'Grip', 'Legs'],
-    masterList: [
-                {name:'Chest',exercises: ['Kneeling Pushups', 'Half Pushups', 'Full Pushups']},
-                {name:'Back',exercises: ['Verical Pulls', 'Horizontal Pullups', 'JackKnife Pullups']},
-                {name:'Core (Abs)',exercises: ['Knee Tucks', 'Laying Knee Tucks', 'Frog Raises']},
-                {name:'Legs',exercises: ['Shoulder Stand Squats', 'JackKnife Squats', 'Supported Squats']}
-              ]
-  });
+  (function() {
+    var bodySelected = '';
+    var exerciseSelected = '';
+
+    Polymer('log-exercise', {
+      ready: function() {
+        console.log(this.$.globals.exercises);
+        this.bodySelected = bodySelected;
+      },
+      selectedBodyChange: function(e){
+        selectedBody = e.detail.item.label;
+        console.log(selectedBody);
+        this.bodySelected = selectedBody;
+      },
+      selectedBody: "",
+      selectedExercise: function(e){
+        console.log(e.detail.item.id);
+        console.log(this.$.bodySelected);
+      },
+      reps: 0
+    });
+  })();
   </script>
 
 </polymer-element>

@@ -1,0 +1,36 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+
+<polymer-element name="app-globals">
+  <script>
+  (function() {
+    // these variables are shared by all instances of app-globals
+    var body_partsJSON;
+    var bodyParts = [];
+    var exercises = {};
+
+    $.getJSON('http://localhost/php/connect.php?query=body_parts',
+    function(data) {
+      //data is the JSON string
+      body_parts = data;
+      for (var i= 0; i<body_parts.length; i++){
+        bodyParts.push(body_parts[i].name);
+      }
+    });
+
+    $.getJSON('http://localhost/php/connect.php?query=exercises',
+    function(data) {
+      //data is the JSON string
+      exercises = data;
+    });
+
+    Polymer('app-globals', {
+      ready: function() {
+        // copy global values into instance properties
+        this.bodyParts = bodyParts;
+        this.exercises = exercises;
+      }
+    });
+  })();
+  </script>
+</polymer-element>
