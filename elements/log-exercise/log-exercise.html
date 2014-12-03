@@ -31,18 +31,18 @@
           <div vertical layout>
             <div center horizontal layout>
               <div>Set 1:</div>
-              <div two><paper-slider value="{{reps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+              <div two><paper-slider value="{{setOneReps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setOneReps}}"></paper-input></div>
             </div>
             <div center horizontal layout>
-              <div>Set 1:</div>
-              <div two><paper-slider value="{{reps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+              <div>Set 2:</div>
+              <div two><paper-slider value="{{setTwoReps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setTwoReps}}"></paper-input></div>
             </div>
             <div center horizontal layout>
-              <div>Set 1:</div>
-              <div two><paper-slider value="{{reps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{reps}}"></paper-input></div>
+              <div>Set 3:</div>
+              <div two><paper-slider value="{{setThreeReps}}" immediateValue="{{setThreeReps}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setThreeReps}}"></paper-input></div>
             </div>
           </div>
         </div>
@@ -59,23 +59,34 @@
   (function() {
     var bodySelected = '';
     var exerciseSelected = '';
+    var setOne = 0;
+    var setTwo = 0;
+    var setThree= 0;
 
     Polymer('log-exercise', {
       ready: function() {
-        console.log(this.$.globals.exercises);
         this.bodySelected = bodySelected;
+        this.exerciseSelected = exerciseSelected;
+        this.setOne = setOne;
+        this.setTwo = setTwo;
+        this.setThree = setThree;
+        this.setOneReps = setOne;
+        this.setTwoReps = setTwo;
+        this.setThreeReps = setThree;
       },
       selectedBodyChange: function(e){
         selectedBody = e.detail.item.label;
-        console.log(selectedBody);
         this.bodySelected = selectedBody;
       },
+      selectedExercise: "",
       selectedBody: "",
       selectedExercise: function(e){
-        console.log(e.detail.item.id);
-        console.log(this.$.bodySelected);
+        selectedExercise = e.detail.item.label;
+        this.exerciseSelected = selectedExercise;
       },
-      reps: 0
+      setOneReps: 0,
+      setTwoReps: 0,
+      setThreeReps: 0
     });
   })();
   </script>
