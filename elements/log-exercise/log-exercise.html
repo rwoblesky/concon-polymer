@@ -70,9 +70,9 @@
         this.setOne = setOne;
         this.setTwo = setTwo;
         this.setThree = setThree;
-        this.setOneReps = setOne;
-        this.setTwoReps = setTwo;
-        this.setThreeReps = setThree;
+        setOne = this.setOneReps;
+        setTwo = this.setTwoReps;
+        setThree = this.setThreeReps;
       },
       selectedBodyChange: function(e){
         selectedBody = e.detail.item.label;
