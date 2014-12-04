@@ -24,7 +24,7 @@ if ($query == "body_parts"){
   }
   echo json_encode($rows);
 } else if ($query == "exercises"){
-  $sql = "SELECT bp.name body_part, e.exercise_name FROM exercises e JOIN body_parts bp ON e.b_id = bp.id";
+  $sql = "SELECT bp.name body_part, e.exercise_name, e.exercise_desc, e.goal_sets, e.goal, e.goal_type FROM exercises e JOIN body_parts bp ON e.b_id = bp.id";
   $result = $conn->query($sql);
   $rows = array();
   while($r = mysqli_fetch_assoc($result)) {

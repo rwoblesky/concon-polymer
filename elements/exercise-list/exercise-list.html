@@ -1,0 +1,34 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="exercise-list">
+
+  <template>
+    <app-globals id="globals"></app-globals>
+    <link rel="stylesheet" href="exercise-list.css">
+    <div>
+      <template repeat="{{exercise in $.globals.exercises}}">
+
+        <paper-shadow id="{{exercise.exercise_name}}" class="exercise-card"></div>
+          <div horizontal layout>
+            <div>
+              <paper-button raised>{{exercise.body_part}}</paper-button>
+            </div>
+            <div>
+                {{exercise.exercise_name}}<br />
+                Goal: {{exercise.goal_sets}} x {{exercise.goal}} {{exercise.goal_type}}
+            </div>
+          </div>
+        </paper-shadow>
+      </template>
+    </div>
+  </template>
+  <script>
+  var exerciseCount = 1;
+
+  Polymer('exercise-list', {
+    ready: function() {
+    }
+  });
+</script>
+
+</polymer-element>

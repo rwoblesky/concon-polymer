@@ -15,8 +15,6 @@ $query = mysql_query("INSERT INTO workout_log(b_id, e_id, set_one_reps, set_two_
 //this success will always run....need to build into logic.
 if (!$query) {
   echo mysql_error();
-} else {
-  echo "Form Submitted Succesfully";
 }
 
 mysql_close($connection); // Connection Closed

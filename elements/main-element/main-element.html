@@ -13,10 +13,10 @@
         <core-menu id="navOptions" on-core-select="{{selectAction}}" selectedItem={{item}} selected="0">
           <core-item num="0" icon="dashboard" label="Dashboard" active></core-item>
           <core-item num="1" icon="note-add" label="Log Workout"></core-item>
-          <core-item num="2" icon="view-list" label="Exercises"></core-item>
-          <core-item num="3" icon="history" label="History"></core-item>
-          <core-item num="4" icon="settings" label="Settings"></core-item>
-          <core-item num="4" icon="settings" label="About"></core-item>
+          <core-item num="2" icon="info" label="How-To"></core-item>
+          <core-item num="3" icon="view-list" label="Exercises"></core-item>
+          <core-item num="4" icon="history" label="History"></core-item>
+          <core-item num="5" icon="settings" label="Settings"></core-item>
         </core-menu>
       </core-header-panel>
 
@@ -35,9 +35,20 @@
           <core-pages id="pages" selected="0">
             <div>Dashboard Content</div>
             <div><log-workout></log-workout></div>
-            <div>Exercises</div>
+            <div>How-To</div>
+            <div><exercise-list></exercise-list></div>
             <div>History</div>
-            <div>Settings</div>
+            <div>
+              Settings <br />
+              <br />
+              Credits: <br />
+              <ul>
+                <li>Developer - Robert A Woblesky</li>
+                <li>Graphic Designer  - Robert A Woblesky</li>
+                <li>System Admin - Robert A Woblesky</li>
+                <li>Consultant - Mathieu Lessard</li>
+              </ul>
+            </div>
           </core-pages>
         </paper-shadow>
       </div>

@@ -31,18 +31,18 @@
           <div vertical layout>
             <div center horizontal layout>
               <div>Set 1:</div>
-              <div two><paper-slider value="{{setOneReps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setOneReps}}"></paper-input></div>
+              <div two><paper-slider id="setOne" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-input></div>
             </div>
             <div center horizontal layout>
               <div>Set 2:</div>
-              <div two><paper-slider value="{{setTwoReps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setTwoReps}}"></paper-input></div>
+              <div two><paper-slider value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-input></div>
             </div>
             <div center horizontal layout>
               <div>Set 3:</div>
-              <div two><paper-slider value="{{setThreeReps}}" immediateValue="{{setThreeReps}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setThreeReps}}"></paper-input></div>
+              <div two><paper-slider value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-slider></div>
+              <div><paper-input class="value-input" label="" value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-input></div>
             </div>
           </div>
         </div>
@@ -70,9 +70,6 @@
         this.setOne = setOne;
         this.setTwo = setTwo;
         this.setThree = setThree;
-        setOne = this.setOneReps;
-        setTwo = this.setTwoReps;
-        setThree = this.setThreeReps;
       },
       selectedBodyChange: function(e){
         selectedBody = e.detail.item.label;
@@ -85,8 +82,17 @@
         this.exerciseSelected = selectedExercise;
       },
       setOneReps: 0,
+      setOneChange: function(e){
+        this.setOne = this.setOneReps;
+      },
       setTwoReps: 0,
-      setThreeReps: 0
+      setTwoChange: function(e){
+        this.setTwo = this.setTwoReps;
+      },
+      setThreeReps: 0,
+      setThreeChange: function(e){
+        this.setThree = this.setThreeReps;
+      }
     });
   })();
   </script>

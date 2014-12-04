@@ -20,7 +20,7 @@
 
   </template>
   <script>
-  var exerciseCount = 3;
+  var exerciseCount = 1;
 
   Polymer('log-workout', {
     ready: function() {
@@ -29,13 +29,11 @@
     },
     today: new Date(),
     addExercise: function(){
-      console.log(this.exerciseCount);
       this.exerciseCount++;
     },
     submitForm: function(){
-      for (var i = 0; i < this.exerciseCount; i++){
+      for (var i = 0; i < this.exerciseCount-1; i++){
         var divId = 'exercise'+ i;
-        console.log(divId);
         var dataString = 'b_id1='+ this.$[divId].bodySelected + '&e_id1=' + this.$[divId].exerciseSelected + '&set_one_reps1=' + this.$[divId].setOne + '&set_two_reps1=' + this.$[divId].setTwo + '&set_three_reps1=' + this.$[divId].setThree;
         $.ajax({
           type: "POST",
@@ -46,8 +44,8 @@
             alert(result);
           }
         });
-        setTimeout(function(){},5000);
       }
+      alert('Workout submitted successfully!');
     }
   });
   </script>
