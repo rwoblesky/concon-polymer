@@ -1,0 +1,24 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<polymer-element name="dash-board">
+
+  <template>
+    <app-globals id="globals"></app-globals>
+    <link rel="stylesheet" href="dash-board.css">
+    <div horizontal layout>
+      <template repeat="{{body in $.globals.bodyParts}}">
+        <div class="level-card" vertical layout>
+          <div class="level">1</div>
+          <h3 class="{{body}}">{{body}}</h3>
+        </div>
+      </template>
+    </div>
+  </template>
+  <script>
+  Polymer('dash-board', {
+    ready: function() {
+    }
+  });
+  </script>
+
+</polymer-element>

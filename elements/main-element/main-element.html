@@ -13,7 +13,7 @@
         <core-menu id="navOptions" on-core-select="{{selectAction}}" selectedItem={{item}} selected="0">
           <core-item num="0" icon="dashboard" label="Dashboard" active></core-item>
           <core-item num="1" icon="note-add" label="Log Workout"></core-item>
-          <core-item num="2" icon="info" label="How-To"></core-item>
+          <core-item num="2" icon="info" label="The Fundamentals"></core-item>
           <core-item num="3" icon="view-list" label="Exercises"></core-item>
           <core-item num="4" icon="history" label="History"></core-item>
           <core-item num="5" icon="settings" label="Settings"></core-item>
@@ -33,7 +33,7 @@
         <paper-fab icon="add" on-click={{logWorkout}} id="logWorkout"></paper-fab>
         <paper-shadow z="2" class="card">
           <core-pages id="pages" selected="0">
-            <div>Dashboard Content</div>
+            <div><dash-board></dash-board></div>
             <div><log-workout></log-workout></div>
             <div>How-To</div>
             <div><exercise-list></exercise-list></div>

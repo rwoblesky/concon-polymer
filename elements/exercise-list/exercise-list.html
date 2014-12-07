@@ -6,8 +6,10 @@
     <app-globals id="globals"></app-globals>
     <link rel="stylesheet" href="exercise-list.css">
     <div>
+      <template repeat="{{body in $.globals.bodyParts}}">
+        <paper-button class="{{body}}" raised>{{body}}</paper-button>
+      </template>
       <template repeat="{{exercise in $.globals.exercises}}">
-
         <paper-shadow id="{{exercise.exercise_name}}" class="exercise-card"></div>
           <div horizontal layout>
             <div>

@@ -5,7 +5,7 @@
   <template>
     <link rel="stylesheet" href="log-workout.css">
 
-    <h5>{{today}}</h5>
+    <h2>{{today | formatDate}}</h2>
 
     Today's Weight: <paper-input label="Weight"></paper-input>
     <!--Empty div to dump exercise cards into-->
@@ -28,8 +28,12 @@
       this.exerciseCount = exerciseCount;
     },
     today: new Date(),
+    formatDate: function(value) {
+      return (value.getMonth()+1) + "-" + value.getDate() + "-" + value.getFullYear();
+    },
     addExercise: function(){
       this.exerciseCount++;
+      this.$.exercises.appendChild('log-exercise id="exercise3"></log-exercise>');
     },
     submitForm: function(){
       for (var i = 0; i < this.exerciseCount-1; i++){

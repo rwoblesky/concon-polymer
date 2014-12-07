@@ -6,48 +6,49 @@
     <app-globals id="globals"></app-globals>
     <link rel="stylesheet" href="log-exercise.css">
     <paper-shadow z="1" id="miniCard" flex>
-      <div horizontal layout>
-        <div flex>
-          <core-dropdown-menu label="Choose a body part">
-            <core-dropdown class="dropdown">
-              <core-selector id="bodySelected" on-core-select="{{selectedBodyChange}}" selectedItem={{item}} selected="" value="{{selectedBody}}">
-                <template repeat="{{bodyPart in $.globals.bodyParts}}">
-                  <core-item label={{bodyPart}}></core-item>
-                </template>
-            </core-dropdown>
-          </core-dropdown-menu>
-        </div>
-        <div flex>
-          <core-dropdown-menu label="Choose an exercise">
-            <core-dropdown class="dropdown">
-              <core-selector on-core-select="{{selectedExercise}}" selectedItem={{item}} selected="">
-                <template repeat="{{exercise in $.globals.exercises}}">
-                    <core-item label={{exercise.exercise_name}} id="{{exercise.exercise_name}}"></core-item>
-                </template>
+      <div horizontal layout flex two>
+        <core-media-query query="max-width: 640px" queryMatches="{{phoneScreen}}"></core-media-query>
+        <div layout vertical?="{{phoneScreen}}" horizontal?="{{!phoneScreen}}">
+          <div flex>
+            <core-dropdown-menu label="Choose a body part">
+              <core-dropdown class="dropdown">
+                <core-selector id="bodySelected" on-core-select="{{selectedBodyChange}}" selectedItem={{item}} selected="" value="{{selectedBody}}">
+                  <template repeat="{{bodyPart in $.globals.bodyParts}}">
+                    <core-item label={{bodyPart}}></core-item>
+                  </template>
               </core-dropdown>
             </core-dropdown-menu>
-        </div>
-        <div flex two>
-          <div vertical layout>
-            <div center horizontal layout>
-              <div>Set 1:</div>
-              <div two><paper-slider id="setOne" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-input></div>
-            </div>
-            <div center horizontal layout>
-              <div>Set 2:</div>
-              <div two><paper-slider value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-input></div>
-            </div>
-            <div center horizontal layout>
-              <div>Set 3:</div>
-              <div two><paper-slider value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-slider></div>
-              <div><paper-input class="value-input" label="" value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-input></div>
-            </div>
+          </div>
+          <div flex>
+            <core-dropdown-menu label="Choose an exercise">
+              <core-dropdown class="dropdown">
+                <core-selector on-core-select="{{selectedExercise}}" selectedItem={{item}} selected="">
+                  <template repeat="{{exercise in $.globals.exercises}}">
+                      <core-item label={{exercise.exercise_name}} id="{{exercise.exercise_name}}"></core-item>
+                  </template>
+                </core-dropdown>
+              </core-dropdown-menu>
+          </div>
+          <div>
+            <paper-button raised>+ADD SET</paper-button>
           </div>
         </div>
-        <div flex>
-          <paper-button raised>+ADD SET</paper-button>
+        <div vertical layout right-justified flex>
+          <div center horizontal layout>
+            <div>Set 1:</div>
+            <div two><paper-slider pin id="setOne" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-slider></div>
+            <div><paper-input class="value-input" label="" value="{{setOneReps}}" on-change="{{setOneChange}}" on-tap="{{setOneChange}}"></paper-input></div>
+          </div>
+          <div center horizontal layout>
+            <div>Set 2:</div>
+            <div two><paper-slider pin value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-slider></div>
+            <div><paper-input class="value-input" label="" value="{{setTwoReps}}" on-change="{{setTwoChange}}" on-tap="{{setTwoChange}}"></paper-input></div>
+          </div>
+          <div center horizontal layout>
+            <div>Set 3:</div>
+            <div two><paper-slider pin value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-slider></div>
+            <div><paper-input class="value-input" label="" value="{{setThreeReps}}" on-change="{{setThreeChange}}" on-tap="{{setThreeChange}}"></paper-input></div>
+          </div>
         </div>
       </div>
     </paper-shadow>
